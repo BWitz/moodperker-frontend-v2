@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Route, Switch, Link, withRouter } from 'react-router-dom';
+import "../App.css"
 
-export default class Homepage extends Component {
+class Homepage extends Component {
 
     state = {
         currentMood: ""
@@ -26,8 +28,15 @@ export default class Homepage extends Component {
       }
   
     render() {
-        return(
+
+
+        return (
             <div>
+                <div className="routes">
+                    <Switch>
+                        <Route path="/Happy" component={HappyMoodPage} />
+                    </Switch>
+                </div>
                 <div className="MoodSelect">
                     <h1 className={this.titleHandler()}><u>MoodPerker</u></h1>
                     <br />
@@ -44,3 +53,5 @@ export default class Homepage extends Component {
     }
 
 }
+
+export default withRouter(Homepage);
