@@ -5,7 +5,7 @@ import '../App.css'
 class MoodQuoteContainer extends Component {
 
     state = { 
-        quotesIndex: ''       
+        quotesIndex: null      
     }
 
     componentDidMount(){
@@ -31,8 +31,8 @@ class MoodQuoteContainer extends Component {
     render() {
         console.log(this.props.quotes[this.state.quotesIndex])
       return (
-        <div>
-            {this.state.quotesIndex.length === 0 ? null : <MoodQuoteCard quote={this.props.quotes[this.state.quotesIndex]}/>}
+        <div className="MoodQuoteContainer">
+            {this.state.quotesIndex === null ? null : <MoodQuoteCard quote={this.props.quotes[this.state.quotesIndex]}/>}
         </div>
         )
       }
