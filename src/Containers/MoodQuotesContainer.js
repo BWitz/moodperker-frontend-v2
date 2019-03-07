@@ -5,52 +5,37 @@ import '../App.css'
 class MoodQuoteContainer extends Component {
 
     state = { 
-        currentQuote: ''        
+        quotesIndex: ''       
     }
 
     componentDidMount(){
-        
+       setTimeout(() => {this.getRandomIndex()}, 90);
     }
 
-    componentDidUpdate(){
-        this.getRandomQuote();
+    getRandomNumber = (min, max) => {
+        let randomNumber = Math.random() * (max - min) + min;
+        let randomNumberRounded =  Math.floor(randomNumber);
+        return randomNumberRounded;
     }
 
-  getRandomNumber = (min, max) => {
-    let randomNumber = Math.random() * (max - min) + min;
-    let randomNumberRounded =  Math.floor(randomNumber);
-    return randomNumberRounded;
-  }
-
-  getRandomQuote = () => {
-    if (this.props.quotes.length === 0) {
-      return null
-    } else {
-      let randomQuoteIndex = this.getRandomNumber(1, this.props.quotes.length);
-      let randomQuote = this.props.quotes[randomQuoteIndex];
-      console.log(randomQuote);
-      return this.props.quotes[randomQuoteIndex];
-    }
-  }
-
-   quoteCardManager = () => {
-    if (this.props.quotes.length === 0) {
-      return null
-    } else {
-        let Quote = this.getRandomQuote();
+    getRandomIndex = () => {
+        let index = this.getRandomNumber(1, this.props.quotes.length)
+        console.log(index);
         this.setState({
-            currentQuote: Quote
+            quotesIndex: index
         })
     }
-  } 
 
-render() {
-  return (
-    <div>
-    <MoodQuoteCard quote={this.state.currentQuote} />
-    </div>
-    )
-  }
-}
+
+
+    render() {
+        console.log(this.props.quotes[this.state.quotesIndex])
+      return (
+        <div>
+            {this.state.quotesIndex.length === 0 ? null : <MoodQuoteCard quote={this.props.quotes[this.state.quotesIndex]}/>}
+        </div>
+        )
+      }
+    }
 
 export default MoodQuoteContainer;
