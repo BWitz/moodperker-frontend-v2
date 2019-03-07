@@ -34,31 +34,6 @@ export default class MoodImageContainer extends Component {
     })
 }
 
-  getRandomImage = () => {
-    let randomImageIndex = this.getRandomNumber(1, 5);
-    return this.props.images[randomImageIndex];
-  }
-
-  getSecondRandomImage = () => {
-    let randomImageIndex = this.getRandomNumber(6, 10);
-    return this.props.images[randomImageIndex]
-  }
-
-  moodCardManager = () => {
-    if (this.props.images.length === 0) {
-      return null
-    } else {
-      return (
-        <div className="MoodImageContainer">
-        <MoodImageCard image = {this.getRandomImage()}/>
-        <br />
-        <br />
-        <br />
-        <MoodImageCard image = {this.getSecondRandomImage()} />
-        </div>
-      )
-    }
-  }
 
 render() {
   return (
