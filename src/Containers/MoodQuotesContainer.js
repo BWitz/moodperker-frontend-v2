@@ -9,7 +9,7 @@ class MoodQuoteContainer extends Component {
     }
 
     componentDidMount(){
-       setTimeout(() => {this.getRandomIndex()}, 90);
+       setTimeout(() => {this.getRandomIndex()}, 400);
     }
 
     getRandomNumber = (min, max) => {
@@ -20,7 +20,6 @@ class MoodQuoteContainer extends Component {
 
     getRandomIndex = () => {
         let index = this.getRandomNumber(1, this.props.quotes.length)
-        console.log(index);
         this.setState({
             quotesIndex: index
         })
@@ -29,7 +28,6 @@ class MoodQuoteContainer extends Component {
 
 
     render() {
-        console.log(this.props.quotes[this.state.quotesIndex])
       return (
         <div className="MoodQuoteContainer">
             {this.state.quotesIndex === null ? null : <MoodQuoteCard quote={this.props.quotes[this.state.quotesIndex]}/>}

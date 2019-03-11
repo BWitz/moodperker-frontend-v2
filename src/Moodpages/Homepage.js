@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Route, Switch, Link, withRouter } from 'react-router-dom';
-import HappyMoodPage from '../Moodpages/HappyMoodPage'
-;import "../App.css"
+import { Route, Switch, withRouter } from 'react-router-dom';
+import HappyMoodPage from '../Moodpages/HappyMoodPage';
+import SadMoodPage from '../Moodpages/SadMoodPage';
+import BoredMoodPage from '../Moodpages/BoredMoodPage';
+import "../App.css";
 
 class Homepage extends Component {
 
@@ -36,6 +38,8 @@ class Homepage extends Component {
                 <div className="routes">
                     <Switch>
                         <Route path="/Happy" component={HappyMoodPage} />
+                        <Route path="/Sad" component={SadMoodPage} />
+                        <Route path="/Bored" component={BoredMoodPage} />
                     </Switch>
                 </div>
                 <div className="MoodSelect">

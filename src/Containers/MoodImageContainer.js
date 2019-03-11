@@ -10,8 +10,8 @@ export default class MoodImageContainer extends Component {
     }
 
     componentDidMount(){
-        setTimeout(() => {this.getFirstImageIndex()}, 300);
-        setTimeout(() => {this.getSecondImageIndex()}, 300);
+        setTimeout(() => {this.getFirstImageIndex()}, 400);
+        setTimeout(() => {this.getSecondImageIndex()}, 400);
     }
 
   getRandomNumber = (min, max) => {
